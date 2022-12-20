@@ -18,6 +18,7 @@ function FlashcardPar(props) {
             <br/>
             <input className="parameter-inputs" placeholder="שרש" dir="rtl"/>
             <input className="parameter-inputs" placeholder="Translation of שרש"/>
+            <button>Create flashcard</button>
 	</div>
     )
 }
