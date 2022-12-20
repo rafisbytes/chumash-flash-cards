@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useState } from "react";
+function DeckPar(props) {    
+    return (
+        <div>
+            <h2>Create a deck</h2>
+            <input placeholder="Name of deck"/>
+            <button onClick={() => props.setDeckOpen("visible")}>Create deck</button>
+        </div>	
+    )
+}
+function FlashcardPar(props) {
+    return (
+        <div {...props}>
+            <h2>Create a flashcard:</h2>
+            <input className="parameter-inputs" placeholder="Original Word" dir="rtl"/>
+            <input className="parameter-inputs" placeholder="Translation"/>
+            <br/>
+            <input className="parameter-inputs" placeholder="שרש" dir="rtl"/>
+            <input className="parameter-inputs" placeholder="Translation of שרש"/>
+            <br/>
+            <button>Create flashcard</button>
+	</div>
+    )
+}
 function App() {
+  const [deckOpen, setDeckOpen] = useState("collapse");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <DeckPar setDeckOpen={setDeckOpen}/>
+	<FlashcardPar style={{visibility:deckOpen}}/>
     </div>
   );
 }
